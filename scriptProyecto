@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Este script crea los componentes de Angular especificados en el proyecto.
+# Asegúrate de ejecutar este script en la raíz de tu proyecto de Angular.
+
+# El comando 'ng generate component' o 'ng g c' se usa para crear componentes.
+# Se le puede pasar la ruta relativa donde quieres que se cree el componente.
+# El flag '--skip-tests' omite la creación de archivos de prueba (spec.ts).
+# El flag '--flat' crea el componente sin una carpeta dedicada.
+
+echo "Iniciando la creación de Clases  de Angular..."
+
+ng g class modelos/usuario --skip-tests
+ng g class modelos/alumno --skip-tests
+
+echo " Todos las clases han sido creadas."
+
+echo "Iniciando la creación de componentes de Angular..."
+
+# Componente : page/bienvenidos
+# Se crea el componente 'bienvenidos' dentro de la carpeta 'src/app/page'.
+ng g c page/bienvenidos --skip-tests
+# template https://github.com/Gauranshgoel123/Welcome-email-template/tree/main/template
+
+
+
+# Componente : page/ingreso
+# Se crea el componente 'ingreso' dentro de la carpeta 'src/app/page'.
+ng g c page/ingreso --skip-tests
+# template https://getbootstrap.com/docs/5.0/examples/sign-in/
+
+# Componente : page/abmAlumno/principalAlumno
+# Se crea el componente 'principalAlumno' dentro de la carpeta 'src/app/page/abmAlumno'.
+ng g c page/abmAlumno/principalAlumno --skip-tests
+
+#  template error https://getbootstrap.com/docs/5.0/examples/jumbotron/
+
+
+# Componente : page/abmAlumno/componente/alumnoAlta
+# Se crea el componente 'alumnoAlta' dentro de la carpeta 'src/app/page/abmAlumno/componente'.
+ng g c page/abmAlumno/componente/alumnoAlta --skip-tests
+
+# Componente : page/error
+# Se crea el componente 'alumnoAlta' dentro de la carpeta 'src/app/page/abmAlumno/componente'.
+ng g c page/error --skip-tests
+#  template error https://github.com/PecceG2/HTML_Template_http_codes/tree/master/404
+
+
+# Componente : page/binding
+# Se crea el componente 'alumnoAlta' dentro de la carpeta 'src/app/page/abmAlumno/componente'.
+ng g c page/binding --skip-tests
+
+
+
+echo " Todos los componentes han sido creados."
+
+echo "Iniciando la creación de Servicios  de Angular..."
+
+ng g s servicios/http --skip-tests
+ng g s servicios/localStorage --skip-tests
+ng g s page/abmAlumno/servicios/alumno --skip-tests
+ng g s servicios/paises
+
+echo "¡Script finalizado! Todos fue  creado."
