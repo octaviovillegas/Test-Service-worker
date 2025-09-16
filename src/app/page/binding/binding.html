@@ -1,1 +1,21 @@
 <p>binding works!</p>
+
+<h1>{{Titulo}}</h1>
+<br>
+{{this.numeroUno}}
+<br>
+{{this.numeroDos}}
+<br>
+<h3>Suma: {{numeroUno + numeroDos}}</h3>
+<h3>Division: {{this.numeroUno / this.numeroDos}}</h3>
+<br>
+<label for="">Primer numero</label>
+<input type="number" [(ngModel)]="numeroUno" />
+<br>
+<label for="">Segundo  numero</label>
+<input type="number" [(ngModel)]="numeroDos" />
+<br>
+<button (click)="CalcularPormedio()">Calcular Promedio</button>
+<br>
+<label for="">Numero Resultado</label>
+<input type="number" [(ngModel)]="numeroResultado"  readonly/>
