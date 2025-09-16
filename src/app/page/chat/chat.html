@@ -1,0 +1,52 @@
+﻿<section class="chat">
+  <header class="chat__header">
+    <h2>Chat comunitario</h2>
+    <p>Comparte mensajes en tiempo real con el resto de los usuarios.</p>
+  </header>
+
+  <form class="chat__form" (ngSubmit)="sendMessage()" novalidate>
+    <div class="chat__field">
+      <label for="alias">Alias</label>
+      <input
+        id="alias"
+        name="alias"
+        type="text"
+        placeholder="Tu nombre o apodo"
+        [ngModel]="alias()"
+        (ngModelChange)="alias.set($event)"
+        required
+      />
+    </div>
+    <div class="chat__field">
+      <label for="message">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="3"
+        placeholder="Escribe tu mensaje"
+        [ngModel]="message()"
+        (ngModelChange)="message.set($event)"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" [disabled]="!canSend()">Enviar</button>
+  </form>
+
+  @if (error(); as mensaje) {
+    <p class="chat__error">{{ mensaje }}</p>
+  }
+
+  <section class="chat__messages">
+    @for (item of messages(); track trackByMessageId) {
+      <article class="chat__message">
+        <header>
+          <span class="chat__message-author">{{ item.author }}</span>
+          @if (item.createdAt; as date) {
+            <time class="chat__message-date">{{ date | date: 'short' }}</time>
+          }
+        </header>
+        <p>{{ item.content }}</p>
+      </article>
+    }
+  </section>
+</section>

@@ -1,9 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { buildAppConfig } from './app/app.config';
 import { App } from './app/app';
+import { loadFirebaseConfig } from './app/firebase/firebase-config-loader';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+async function main() {
+  try {
+    const firebaseConfig = await loadFirebaseConfig();
+    await bootstrapApplication(App, buildAppConfig(firebaseConfig));
+  } catch (error) {
+    console.error('No se pudo inicializar Firebase.', error);
+  }
+}
 
-
-
+main();

@@ -5,6 +5,7 @@ import { Error } from './page/error/error';
 import { Ingreso } from './page/ingreso/ingreso';
 import { Binding } from './page/binding/binding';
 import { PaisesListadoComponent } from './page/paises-listado/paises-listado';
+import { ChatComponent } from './page/chat/chat';
 
 export const routes: Routes = [
   { path: '', component: Bienvenidos },              
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'ingreso', component: Ingreso },  
   { path: 'binding', component: Binding },  
   { path: 'paises', component: PaisesListadoComponent },  
+  { path: 'chat', component: ChatComponent },  
   { path: '**', component: Error }         // Wildcard - always last
 ];
